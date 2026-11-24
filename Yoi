@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Om Boutique</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#eceaf4;--surface:#fff;--ink:#1c2150;--muted:#555a85;--accent:#d93f5c;--accent-ink:#fff;--line:#c9c6de;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131738;--surface:#1c2150;--ink:#eceaf4;--muted:#aeb1d6;--accent:#ff7a93;--accent-ink:#131738;--line:#363b78;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131738;--surface:#1c2150;--ink:#eceaf4;--muted:#aeb1d6;--accent:#ff7a93;--accent-ink:#131738;--line:#363b78;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.1;margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:1.25rem;padding-bottom:1.25rem;gap:1rem;flex-wrap:wrap}
+.logo{font-family:"Young Serif",Georgia,serif;font-size:1.3rem;text-decoration:none}
+nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover,nav a:focus-visible{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;align-items:center;padding-top:3rem;padding-bottom:4rem}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);letter-spacing:-.01em}
+.hero p{max-width:34rem;color:var(--muted);margin:1.25rem 0 1.75rem}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.85rem 1.6rem;border-radius:999px;font-weight:600;text-decoration:none}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:.5rem}
+.tagwrap{display:flex;justify-content:center;transform-origin:50% 0;animation:sway 2.4s ease-out 1}
+.tag{position:relative;width:min(260px,70%);background:var(--surface);border-radius:14px 14px 26px 26px;padding:3.5rem 1.5rem 2rem;text-align:center;border:2px solid var(--ink)}
+.tag::before{content:"";position:absolute;top:1.2rem;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
+.tag::after{content:"";position:absolute;top:-70px;left:50%;width:2px;height:80px;background:var(--ink)}
+.tag b{display:block;font-family:"Young Serif",Georgia,serif;font-size:1.6rem;font-weight:400}
+.tag span{display:block;color:var(--muted);margin-top:.4rem}
+.tag em{display:inline-block;margin-top:1rem;font-style:normal;font-weight:600;color:var(--accent)}
+@keyframes sway{0%{transform:rotate(-7deg)}25%{transform:rotate(5deg)}50%{transform:rotate(-3deg)}75%{transform:rotate(1.5deg)}100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.tagwrap{animation:none}}
+section{padding:3.5rem 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.head h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.card{text-decoration:none}
+.sw{aspect-ratio:3/4;border-radius:12px;margin-bottom:.8rem}
+.s1{background:repeating-linear-gradient(45deg,#2a3175 0 10px,#343c8a 10px 20px)}
+.s2{background:radial-gradient(circle at 30% 30%,#f2b8c4 0 14%,transparent 15%),radial-gradient(circle at 70% 65%,#f2b8c4 0 14%,transparent 15%),#e0607a;background-size:60px 60px}
+.s3{background:linear-gradient(90deg,#d8c9a6 0 50%,#cdbd96 50%);background-size:24px 100%}
+.s4{background:linear-gradient(#0000 0 48%,#ffffff40 48% 52%,#0000 52%),linear-gradient(90deg,#0000 0 48%,#ffffff40 48% 52%,#0000 52%),#4a7c6f;background-size:36px 36px}
+.card h3{font-size:1.1rem}
+.card p{margin:.15rem 0 0;color:var(--muted)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.75rem}
+.col h3{font-size:1.5rem;margin-bottom:.6rem}
+.col p{margin:0;color:var(--muted)}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.story h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.story p{margin:0 0 1rem;color:var(--muted);max-width:34rem}
+.visit{background:var(--ink);color:var(--bg);border-radius:24px;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.visit h2{font-size:clamp(1.8rem,4vw,2.4rem)}
+.visit dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.25rem}
+.visit dt{opacity:.75}
+.visit dd{margin:0}
+footer{padding:2.5rem 0 3rem;color:var(--muted);text-align:center;font-size:.95rem}
+@media (max-width:860px){.hero,.story,.visit{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.hero{padding-top:5rem}}
+body{overflow-x:hidden}
+.hero{position:relative}
+.hero>div{position:relative;z-index:1}
+.mandala{position:absolute;right:-140px;top:50%;width:560px;height:560px;margin-top:-280px;z-index:0;pointer-events:none;opacity:.25}
+.mandala::before,.mandala::after{content:"";position:absolute;border-radius:50%}
+.mandala::before{inset:0;background:repeating-conic-gradient(var(--accent) 0 6deg,transparent 6deg 12deg);-webkit-mask:radial-gradient(circle,transparent 45%,#000 46%);mask:radial-gradient(circle,transparent 45%,#000 46%);animation:spin 40s linear infinite}
+.mandala::after{inset:18%;background:repeating-conic-gradient(var(--ink) 0 4deg,transparent 4deg 12deg);-webkit-mask:radial-gradient(circle,transparent 25%,#000 26%);mask:radial-gradient(circle,transparent 25%,#000 26%);animation:spin 22s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fl{position:absolute;border-radius:50%;z-index:0;pointer-events:none;opacity:.55;animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(24px,-34px) scale(1.2)}66%{transform:translate(-20px,-12px) scale(.85)}}
+.w{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;animation:pop .9s cubic-bezier(.3,1.5,.5,1) backwards;transition:transform .2s,color .2s}
+.ch:hover{transform:translateY(-10px) rotate(-8deg);color:var(--accent)}
+@keyframes pop{0%{transform:translateY(90px) rotate(25deg) scale(.2);opacity:0}100%{transform:none;opacity:1}}
+.tagwrap:hover{animation:sway 1.6s ease-in-out infinite}
+.marquee{overflow:hidden;background:var(--accent);color:var(--accent-ink);transform:rotate(-2deg);margin:1rem -2rem;padding:.9rem 0;font:400 1.4rem "Young Serif",Georgia,serif}
+.track{display:flex;width:max-content;animation:scroll 22s linear infinite}
+.track span{white-space:nowrap;padding-right:1.5rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.js .rv{opacity:0;transform:translateY(50px) rotate(-5deg) scale(.92);transition:opacity .7s,transform .8s cubic-bezier(.3,1.4,.5,1)}
+.js .rv.in{opacity:1;transform:none}
+.card:hover .sw{transform:rotate(-3deg) scale(1.05)}
+.sw{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.conf{position:fixed;width:10px;height:14px;border-radius:2px;pointer-events:none;z-index:50}
+@media (max-width:860px){.mandala{right:-300px}}
+@media (prefers-reduced-motion:reduce){.mandala::before,.mandala::after,.fl,.track,.tagwrap:hover{animation:none}.ch{animation:none}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:29}
+header .wrap{position:relative;transition:padding .3s}
+header.sc{border-bottom-color:var(--line)}
+header.sc .wrap{padding-top:.55rem;padding-bottom:.55rem}
+section{scroll-margin-top:70px}
+.progress{position:fixed;top:0;left:0;width:100%;height:4px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:40}
+.logo{display:inline-flex;align-items:center;gap:.45rem}
+.om{display:inline-block;color:var(--accent);transition:transform .7s cubic-bezier(.3,1.5,.5,1)}
+.logo:hover .om,.logo:focus-visible .om{transform:rotate(360deg) scale(1.25)}
+nav{position:relative;gap:.2rem;padding:.3rem;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+nav a{position:relative;z-index:1;padding:.45rem 1rem;border-radius:999px;transition:color .25s}
+.ind{position:absolute;top:.3rem;bottom:.3rem;left:0;width:0;border-radius:999px;background:var(--accent);z-index:0;opacity:0;transition:transform .5s cubic-bezier(.3,1.5,.5,1),width .5s cubic-bezier(.3,1.5,.5,1),opacity .25s}
+.menu{display:none;width:46px;height:46px;padding:0;border-radius:50%;border:2px solid var(--ink);background:var(--surface);flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+.menu span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .35s cubic-bezier(.3,1.5,.5,1),opacity .2s}
+.menu[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (min-width:701px){nav a.under,nav a.under:hover,nav a.under:focus-visible{color:var(--accent-ink)}}
+@media (max-width:700px){
+header .wrap{flex-wrap:nowrap}
+.menu{display:flex}
+nav{position:absolute;top:calc(100% - .2rem);right:1.25rem;flex-direction:column;align-items:stretch;border-radius:22px;padding:.6rem;min-width:200px;transform:scale(.3);opacity:0;pointer-events:none;transform-origin:100% 0;transition:transform .45s cubic-bezier(.3,1.5,.5,1),opacity .2s;box-shadow:0 12px 30px #0003}
+nav.open{transform:none;opacity:1;pointer-events:auto}
+nav a{padding:.8rem 1rem}
+nav a.on{background:var(--accent);color:var(--accent-ink)}
+.ind{display:none}
+}
+@media (prefers-reduced-motion:reduce){.ind,nav,.om,.menu span,header .wrap{transition:none}}
+.mpage{padding:3rem 0 4rem;animation:rise .6s cubic-bezier(.3,1.4,.5,1)}
+@keyframes rise{from{opacity:0;transform:translateY(40px) rotate(-2deg)}to{opacity:1;transform:none}}
+.mpage h2{font-size:clamp(2rem,5vw,3.4rem)}
+.lead{color:var(--muted);max-width:36rem;margin:1rem 0 2rem}
+.mgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:2.5rem;align-items:start}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-weight:600;margin-bottom:.35rem}
+.field input,.field select,.field textarea{width:100%;padding:.8rem 1rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);font:inherit;transition:border-color .2s,transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 30%,transparent)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+.measures{display:grid;grid-template-columns:repeat(2,1fr);gap:0 1rem}
+.actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
+button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}
+button.btn.alt{border:2px solid var(--ink)}
+#m-status{min-height:1.6rem;margin:1rem 0 0;color:var(--muted)}
+.tips{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.75rem}
+.tips h3{font-size:1.4rem;margin-bottom:.8rem}
+.tips ul{margin:0;padding-left:1.1rem;color:var(--muted)}
+.tips li{margin-bottom:.6rem}
+@media (max-width:860px){.mgrid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mpage{animation:none}.field input,.field select,.field textarea{transition:none}}
+.sw{position:relative;overflow:hidden;display:grid;place-items:center}
+.sw::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,#ffffff55 50%,transparent 70%);background-size:250% 100%;animation:shine 2.8s linear infinite}
+@keyframes shine{from{background-position:150% 0}to{background-position:-50% 0}}
+.soon{position:relative;z-index:1;background:var(--accent);color:var(--accent-ink);padding:.45rem 1.1rem;border-radius:999px;font-weight:600;transform:rotate(-8deg);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{transform:rotate(-8deg) scale(1.12)}}
+.grid .card:nth-child(2) .soon{animation-delay:.3s}
+.grid .card:nth-child(3) .soon{animation-delay:.6s}
+.grid .card:nth-child(4) .soon{animation-delay:.9s}
+.pill{display:inline-block;margin:0 0 .6rem;background:var(--accent);color:var(--accent-ink);padding:.2rem .8rem;border-radius:999px;font-size:.85rem;font-weight:600}
+@media (prefers-reduced-motion:reduce){.sw::after,.soon{animation:none}}
+.lpage{padding:2rem 0 4rem;animation:rise .6s cubic-bezier(.3,1.4,.5,1)}
+.lgrid{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden;min-height:560px}
+.lphoto{position:relative;background:linear-gradient(160deg,#2a3175,#1c2150 60%,#d93f5c 150%);display:flex;flex-direction:column;justify-content:flex-end}
+.lphoto svg{position:absolute;inset:0;width:100%;height:100%}
+.lcap{position:relative;margin:0;padding:1.5rem;color:#eceaf4;font:400 1.7rem/1.15 "Young Serif",Georgia,serif}
+.dr{transform-box:fill-box;transform-origin:50% 0;animation:hang 3.5s ease-in-out infinite alternate}
+@keyframes hang{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.lform{padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:center}
+.lform h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+.pw{position:relative}
+.pw input{padding-right:5rem}
+.pw button{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;padding:.4rem .6rem}
+.lrow{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin:0 0 1.25rem;font-size:.95rem}
+.lrow label{display:flex;gap:.4rem;align-items:center}
+.lrow input{accent-color:var(--accent)}
+#l-status{min-height:1.6rem;margin:1rem 0 0;color:var(--muted)}
+.swap{margin:1.25rem 0 0;color:var(--muted)}
+.link{border:0;background:none;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;padding:0;text-decoration:underline}
+.lform .btn{width:100%;text-align:center}
+@media (max-width:860px){.lgrid{grid-template-columns:1fr}.lphoto{min-height:280px}.lform{padding:2rem 1.5rem}}
+@media (prefers-reduced-motion:reduce){.dr,.lpage{animation:none}}
+.acct{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);background:var(--surface);color:var(--ink);transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .2s,color .2s,border-color .2s}
+.acct:hover,.acct:focus-visible,.acct.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.acct:hover{transform:rotate(-12deg) scale(1.12)}
+@media (max-width:700px){header .wrap{justify-content:flex-start;gap:.6rem}.acct{margin-left:auto}.menu{order:2}}
+@media (prefers-reduced-motion:reduce){.acct{transition:none}}
+.acct{position:relative}
+.acct.in::after{content:"";position:absolute;top:1px;right:1px;width:12px;height:12px;border-radius:50%;background:#2fa36b;border:2px solid var(--surface)}
+#l-out[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<header><div class="wrap">
+  <a class="logo" href="#top"><span class="om" aria-hidden="true">ॐ</span>Om Boutique</a>
+  <nav id="mainnav" aria-label="Main"><a href="#top">Home</a><a href="#new">New in</a><a href="#collections">Collections</a><a href="#story">Our story</a><a href="#visit">Visit</a><a href="#measure">Send measurements</a></nav>
+  <button class="menu" aria-label="Menu" aria-expanded="false" aria-controls="mainnav"><span></span><span></span><span></span></button>
+  <a class="acct" href="#login" aria-label="Login" title="Login"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></a>
+</div></header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Clothes worth keeping.</h1>
+      <p>Small-batch dresses, kurtas and everyday layers, made in natural fabrics by makers we know by name. Pieces that get better every time you wear them.</p>
+      <a class="btn" href="#new">See what’s coming</a><a class="btn alt" href="#visit">Visit the store</a>
+    </div>
+    <span class="mandala" aria-hidden="true"></span>
+    <span class="fl" style="left:4%;top:12%;width:46px;height:46px;background:#d93f5c"></span>
+    <span class="fl" style="left:46%;top:6%;width:30px;height:30px;background:#4a7c6f;animation-delay:-2s"></span>
+    <span class="fl" style="left:38%;bottom:8%;width:60px;height:60px;background:#f2b8c4;animation-delay:-4s"></span>
+    <span class="fl" style="right:6%;bottom:12%;width:36px;height:36px;background:#e8c25b;animation-delay:-1s"></span>
+    <div class="tagwrap" aria-hidden="true">
+      <div class="tag"><b>Block-print wrap dress</b><span>Cotton mulmul · Jaipur</span><em>₹3,450</em></div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Om Boutique ✦ New arrivals ✦ Hand block-printed ✦ Free alterations ✦ Om Boutique ✦ New arrivals ✦ Hand block-printed ✦ Free alterations ✦</span><span>Om Boutique ✦ New arrivals ✦ Hand block-printed ✦ Free alterations ✦ Om Boutique ✦ New arrivals ✦ Hand block-printed ✦ Free alterations ✦</span></div></div>
+
+  <section id="new"><div class="wrap">
+    <div class="head"><h2>New in</h2><a href="#collections">Browse all collections</a></div>
+    <div class="grid">
+      <div class="card"><div class="sw s1"><b class="soon">Coming soon</b></div><h3>Dresses</h3><p>Arriving soon</p></div>
+      <div class="card"><div class="sw s2"><b class="soon">Coming soon</b></div><h3>Kurtas</h3><p>Arriving soon</p></div>
+      <div class="card"><div class="sw s3"><b class="soon">Coming soon</b></div><h3>Co-ord sets</h3><p>Arriving soon</p></div>
+      <div class="card"><div class="sw s4"><b class="soon">Coming soon</b></div><h3>Jackets</h3><p>Arriving soon</p></div>
+    </div>
+  </div></section>
+
+  <section id="collections"><div class="wrap">
+    <div class="head"><h2>Shop by collection</h2></div>
+    <div class="cols">
+      <div class="col"><h3>Everyday</h3><span class="pill">Coming soon</span><p>Soft cotton and linen you can live in from morning chai to late dinners.</p></div>
+      <div class="col"><h3>Festive</h3><span class="pill">Coming soon</span><p>Hand-embroidered and block-printed pieces for weddings, Diwali and Eid.</p></div>
+      <div class="col"><h3>Gifting</h3><span class="pill">Coming soon</span><p>Dupattas, tote bags and scarves, wrapped in reusable cloth at no charge.</p></div>
+    </div>
+  </div></section>
+
+  <section id="story"><div class="wrap story">
+    <h2>Made slowly, sold honestly.</h2>
+    <div>
+      <p>Om Boutique started as one rack of hand-dyed kurtas. Today we work with weavers and printers across Rajasthan, and we pay them before the season starts, not after.</p>
+      <p>Every piece has its fabric, maker and care instructions written on the tag, so you know what you are buying and how to make it last.</p>
+    </div>
+  </div></section>
+
+  <section id="visit"><div class="wrap">
+    <div class="visit">
+      <div><h2>Come try things on.</h2><p>Our stylists will help you find the right fit. Alterations take two days and are free on all purchases.</p></div>
+      <dl>
+        <dt>Address</dt><dd>12 Gumanpura Road, Kota</dd>
+        <dt>Mon–Sat</dt><dd>11 am to 8 pm</dd>
+        <dt>Sunday</dt><dd>12 pm to 6 pm</dd>
+        <dt>Phone</dt><dd>+91 98765 43210</dd>
+      </dl>
+    </div>
+  </div></section>
+</main>
+
+<div id="measure" class="mpage" hidden>
+<div class="wrap">
+  <h2>Send us your measurements</h2>
+  <p class="lead">Fill in what you know and press send and your details reach us straight away. Skip any box you are unsure about.</p>
+  <div class="mgrid">
+    <form id="mform" novalidate>
+      <div class="pair">
+        <div class="field"><label for="m-name">Your name</label><input id="m-name" autocomplete="name"></div>
+        <div class="field"><label for="m-phone">Phone or email (so we can reply)</label><input id="m-phone" autocomplete="tel"></div>
+        <div class="field"><label for="m-item">What is it for?</label><select id="m-item"><option>Blouse</option><option>Kurta</option><option>Dress</option><option>Lehenga</option><option>Trousers</option><option>Other</option></select></div>
+        <div class="field"><label for="m-unit">Measuring in</label><select id="m-unit"><option value="inches">Inches</option><option value="cm">Centimetres</option></select></div>
+      </div>
+      <div class="measures">
+        <div class="field"><label for="m1">Length</label><input id="m1" data-m="Length" inputmode="decimal"></div>
+        <div class="field"><label for="m2">Breadth</label><input id="m2" data-m="Breadth" inputmode="decimal"></div>
+        <div class="field"><label for="m3">Chest</label><input id="m3" data-m="Chest" inputmode="decimal"></div>
+        <div class="field"><label for="m4">Waist</label><input id="m4" data-m="Waist" inputmode="decimal"></div>
+        <div class="field"><label for="m5">Hip</label><input id="m5" data-m="Hip" inputmode="decimal"></div>
+        <div class="field"><label for="m6">Shoulder</label><input id="m6" data-m="Shoulder" inputmode="decimal"></div>
+        <div class="field"><label for="m7">Sleeve length</label><input id="m7" data-m="Sleeve length" inputmode="decimal"></div>
+        <div class="field"><label for="m8">Neck</label><input id="m8" data-m="Neck" inputmode="decimal"></div>
+      </div>
+      <div class="field"><label for="m-notes">Anything else? Fabric, colour, date you need it by</label><textarea id="m-notes" rows="4"></textarea></div>
+      <div class="actions"><button class="btn" type="submit">Send measurements</button><button class="btn alt" type="button" id="m-copy">Copy details</button></div>
+      <p id="m-status" role="status"></p>
+    </form>
+    <aside class="tips">
+      <h3>Measuring tips</h3>
+      <ul>
+        <li>Length: from the top of your shoulder down to where you want the garment to end.</li>
+        <li>Breadth: straight across the fullest part, from one side to the other.</li>
+        <li>Use a soft tape and keep it snug, not tight.</li>
+        <li>Measure over thin clothes, and ask someone to help if you can.</li>
+      </ul>
+    </aside>
+  </div>
+</div>
+</div>
+
+<div id="login" class="lpage" hidden>
+<div class="wrap"><div class="lgrid">
+  <div class="lphoto" role="img" aria-label="Dresses hanging on a clothing rail">
+    <svg viewBox="0 0 420 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs><g id="dr"><path d="M0 -30 q0 -14 10 -14 M0 -30 l-34 22 h68 z" fill="none" stroke="#eceaf4" stroke-width="3"/><path d="M-22 -8 h44 l-8 40 l30 150 h-92 l30 -150 z"/></g></defs>
+      <line x1="10" y1="96" x2="410" y2="96" stroke="#eceaf4" stroke-width="4" stroke-linecap="round"/>
+      <g class="dr"><use href="#dr" x="75" y="140" fill="#d93f5c"/></g>
+      <g class="dr" style="animation-delay:-1s"><use href="#dr" x="165" y="140" fill="#f2b8c4"/></g>
+      <g class="dr" style="animation-delay:-2s"><use href="#dr" x="255" y="140" fill="#e8c25b"/></g>
+      <g class="dr" style="animation-delay:-3s"><use href="#dr" x="345" y="140" fill="#4a7c6f"/></g>
+    </svg>
+    <p class="lcap">Handmade.<br>Hand-picked.</p>
+  </div>
+  <div class="lform">
+    <h2 id="l-title">Welcome back</h2>
+    <p class="lead" id="l-sub">Log in to see your orders and saved measurements.</p>
+    <form id="lform" novalidate>
+      <div class="field" id="l-namef" hidden><label for="l-name">Full name</label><input id="l-name" autocomplete="name"></div>
+      <div class="field"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="email"></div>
+      <div class="field"><label for="l-pass">Password</label><div class="pw"><input id="l-pass" type="password" autocomplete="current-password"><button type="button" id="l-eye" aria-label="Show password">Show</button></div></div>
+      <div class="lrow"><label><input type="checkbox"> Keep me logged in</label><a href="#login" id="l-forgot">Forgot password?</a></div>
+      <button class="btn" type="submit" id="l-btn">Log in</button>
+      <p id="l-status" role="status"></p>
+    </form>
+    <div id="l-out" hidden style="display:grid;gap:.75rem"><a class="btn" href="#measure">Send my measurements</a><button class="btn alt" type="button" id="l-logout" style="margin-left:0">Log out</button></div>
+    <p class="swap"><span id="l-q">New here?</span> <button type="button" id="l-swap" class="link">Create an account</button></p>
+  </div>
+</div></div>
+</div>
+
+<footer><div class="wrap">© 2026 Om Boutique. Free shipping across India on orders above ₹2,000.</div></footer>
+<script>
+(function(){
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function burst(x,y){var cols=['#d93f5c','#ff7a93','#f2b8c4','#4a7c6f','#e8c25b','#2a3175'];
+for(var n=0;n<36;n++){var p=document.createElement('i');p.className='conf';p.style.left=x+'px';p.style.top=y+'px';p.style.background=cols[n%cols.length];document.body.appendChild(p);
+var a=Math.random()*Math.PI*2,d=80+Math.random()*180;
+p.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+Math.cos(a)*d+'px,'+(Math.sin(a)*d+120)+'px) rotate('+Math.random()*720+'deg)',opacity:0}],{duration:900+Math.random()*600,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=(function(el){return function(){el.remove()}})(p);}}
+if(rm)return;
+var h=document.querySelector('.hero h1'),t=h.textContent;
+h.setAttribute('aria-label',t);h.textContent='';
+var i=0;t.split(' ').forEach(function(w){var ws=document.createElement('span');ws.className='w';ws.setAttribute('aria-hidden','true');
+w.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.animationDelay=(i++*55)+'ms';ws.appendChild(s)});
+h.appendChild(ws);h.appendChild(document.createTextNode(' '))});
+document.documentElement.classList.add('js');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.card,.col,.story>*,.visit').forEach(function(el,k){el.classList.add('rv');el.style.transitionDelay=(k%4)*90+'ms';io.observe(el)});
+document.querySelectorAll('.btn').forEach(function(b){b.addEventListener('click',function(e){var r=b.getBoundingClientRect();burst(e.clientX||r.left+r.width/2,e.clientY||r.top+r.height/2)})});
+})();
+</script>
+<script>
+(function(){
+var nav=document.getElementById('mainnav'),links=[].slice.call(nav.querySelectorAll('a')),hd=document.querySelector('header'),btn=document.querySelector('.menu'),pr=document.querySelector('.progress'),ind=document.createElement('span'),cur=null,tick=false;
+ind.className='ind';ind.setAttribute('aria-hidden','true');nav.insertBefore(ind,nav.firstChild);
+function mv(a){links.forEach(function(l){l.classList.toggle('under',l===a)});if(!a){ind.style.opacity=0;return}ind.style.opacity=1;ind.style.width=a.offsetWidth+'px';ind.style.transform='translateX('+a.offsetLeft+'px)'}
+function setOn(a){cur=a;links.forEach(function(l){l.classList.toggle('on',l===a);if(l===a)l.setAttribute('aria-current','true');else l.removeAttribute('aria-current')});mv(a)}
+links.forEach(function(a){['mouseenter','focus'].forEach(function(ev){a.addEventListener(ev,function(){mv(a)})});['mouseleave','blur'].forEach(function(ev){a.addEventListener(ev,function(){mv(cur)})});a.addEventListener('click',close)});
+function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+btn.addEventListener('click',function(e){e.stopPropagation();var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+document.addEventListener('click',function(e){if(!nav.contains(e.target))close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+function update(){tick=false;var y=window.scrollY,max=document.documentElement.scrollHeight-innerHeight;pr.style.transform='scaleX('+(max>0?Math.min(y/max,1):0)+')';hd.classList.toggle('sc',y>20);
+var a=null;if(location.hash==='#measure'||location.hash==='#login')a=links.filter(function(l){return l.getAttribute('href')===location.hash})[0]||null;else{a=links[0];links.forEach(function(l){var h=l.getAttribute('href'),s=document.querySelector(h);if(y>200&&h!=='#measure'&&h!=='#login'&&h!=='#top'&&s&&s.getBoundingClientRect().top<innerHeight*.45)a=l})}
+if(a!==cur)setOn(a)}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(update)}},{passive:true});
+addEventListener('resize',function(){mv(cur)});
+update();
+})();
+</script>
+<script>
+(function(){
+var main=document.getElementById('top'),page=document.getElementById('measure'),TO='bhavishya2908@gmail.com',st=document.getElementById('m-status');
+function route(){var h=location.hash;document.querySelector('.acct').classList.toggle('on',h==='#login');
+if(h==='#measure'||h==='#login'){main.hidden=true;page.hidden=h!=='#measure';document.getElementById('login').hidden=h!=='#login';scrollTo(0,0);document.title=(h==='#login'?'Login':'Send measurements')+' – Om Boutique'}
+else{var was=main.hidden;main.hidden=false;page.hidden=true;document.getElementById('login').hidden=true;document.title='Om Boutique';
+if(was){var el=null;try{el=h.length>1?document.querySelector(h):null}catch(e){}if(el)el.scrollIntoView();else scrollTo(0,0)}}
+dispatchEvent(new Event('scroll'))}
+addEventListener('hashchange',route);route();
+function build(){var name=document.getElementById('m-name').value.trim(),phone=document.getElementById('m-phone').value.trim(),item=document.getElementById('m-item').value,unit=document.getElementById('m-unit').value,notes=document.getElementById('m-notes').value.trim(),l=[];
+document.querySelectorAll('[data-m]').forEach(function(i){if(i.value.trim())l.push(i.getAttribute('data-m')+': '+i.value.trim()+' '+unit)});
+if(!name){st.textContent='Please enter your name first.';document.getElementById('m-name').focus();return null}
+if(!l.length&&!notes){st.textContent='Add at least one measurement or a note.';document.getElementById('m1').focus();return null}
+var body='Name: '+name+(phone?'\nPhone: '+phone:'')+'\nFor: '+item+'\n\nMeasurements ('+unit+')\n'+(l.join('\n')||'None given')+(notes?'\n\nNotes: '+notes:'');
+return{subject:'Measurements from '+name+' ('+item+')',body:body}}
+var KEY='PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+document.getElementById('mform').addEventListener('submit',function(e){e.preventDefault();var m=build();if(!m)return;
+var f=e.target,btn=f.querySelector('button[type=submit]');btn.disabled=true;st.textContent='Sending\u2026';
+fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:KEY,subject:m.subject,from_name:'Om Boutique',message:m.body})})
+.then(function(r){return r.json()})
+.then(function(d){if(!d.success)throw new Error('fail');st.textContent='Sent! We have received your measurements and will contact you soon.';f.reset()})
+.catch(function(){st.textContent='Could not send. Please try again, or press Copy details and email them to '+TO+'.'})
+.then(function(){btn.disabled=false})});
+document.getElementById('m-copy').addEventListener('click',function(){var m=build();if(!m)return;
+var done=function(){st.textContent='Copied. Paste it into an email to '+TO+'.'},fail=function(){st.textContent='Could not copy. Select the details and send them to '+TO+'.'};
+try{navigator.clipboard.writeText(m.subject+'\n\n'+m.body).then(done,fail)}catch(err){fail()}});
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+(function(){
+var SB_URL='PASTE_YOUR_SUPABASE_PROJECT_URL',SB_KEY='PASTE_YOUR_SUPABASE_ANON_KEY';
+var mode='login',user=null,$=function(i){return document.getElementById(i)},
+sb=(window.supabase&&SB_URL.indexOf('https://')===0)?window.supabase.createClient(SB_URL,SB_KEY):null;
+function say(t){$('l-status').textContent=t}
+function nice(e){var m=(e&&e.message)||'';if(/invalid login/i.test(m))return 'Wrong email or password.';if(/already/i.test(m))return 'This email already has an account. Try logging in.';if(/not confirmed/i.test(m))return 'Please confirm your email first. Check your inbox.';return m||'Something went wrong. Please try again.'}
+function render(){var su=mode==='signup',inn=!!user;
+$('lform').hidden=inn;document.querySelector('.swap').hidden=inn;$('l-out').hidden=!inn;
+document.querySelector('.acct').classList.toggle('in',inn);
+if(inn){var meta=user.user_metadata||{};$('l-title').textContent='Hello, '+(meta.full_name||'there');$('l-sub').textContent='You are logged in as '+user.email+'.';return}
+$('l-namef').hidden=!su;$('l-title').textContent=su?'Create your account':'Welcome back';
+$('l-sub').textContent=su?'Join Om Boutique to save your measurements and track orders.':'Log in to see your orders and saved measurements.';
+$('l-btn').textContent=su?'Create account':'Log in';$('l-q').textContent=su?'Already have an account?':'New here?';$('l-swap').textContent=su?'Log in':'Create an account';
+$('l-pass').autocomplete=su?'new-password':'current-password'}
+$('l-eye').addEventListener('click',function(){var p=$('l-pass'),h=p.type==='password';p.type=h?'text':'password';this.textContent=h?'Hide':'Show';this.setAttribute('aria-label',h?'Hide password':'Show password')});
+$('l-swap').addEventListener('click',function(){mode=mode==='login'?'signup':'login';say('');render()});
+$('l-forgot').addEventListener('click',function(e){e.preventDefault();var em=$('l-email').value.trim();
+if(!sb)return say('Login is not set up yet. Add your Supabase details to the file first.');
+if(!/^\S+@\S+\.\S+$/.test(em))return say('Type your email above, then press Forgot password again.');
+sb.auth.resetPasswordForEmail(em,{redirectTo:location.origin+location.pathname}).then(function(r){say(r.error?nice(r.error):'Check your email for a password reset link.')})});
+$('lform').addEventListener('submit',function(e){e.preventDefault();
+var su=mode==='signup',name=$('l-name').value.trim(),em=$('l-email').value.trim(),pw=$('l-pass').value;
+if(su&&!name){say('Please enter your name.');$('l-name').focus();return}
+if(!/^\S+@\S+\.\S+$/.test(em)){say('Please enter a valid email address.');$('l-email').focus();return}
+if(pw.length<6){say('Your password needs at least 6 characters.');$('l-pass').focus();return}
+if(!sb){say('Login is not set up yet. Add your Supabase details to the file first.');return}
+var btn=$('l-btn');btn.disabled=true;say('Please wait\u2026');
+var p=su?sb.auth.signUp({email:em,password:pw,options:{data:{full_name:name}}}):sb.auth.signInWithPassword({email:em,password:pw});
+p.then(function(r){if(r.error)throw r.error;
+if(su&&!r.data.session){say('Account created. Check your email, press the confirm link, then log in.');mode='login';render();return}
+$('lform').reset();say('')})
+.catch(function(err){say(nice(err))})
+.then(function(){btn.disabled=false})});
+$('l-logout').addEventListener('click',function(){if(sb)sb.auth.signOut()});
+if(sb){
+sb.auth.getSession().then(function(r){user=r.data.session?r.data.session.user:null;render()});
+sb.auth.onAuthStateChange(function(ev,session){user=session?session.user:null;render();
+if(ev==='PASSWORD_RECOVERY'){setTimeout(function(){location.hash='#login';var np=prompt('Enter your new password (at least 6 characters)');if(np&&np.length>=6)sb.auth.updateUser({password:np}).then(function(r){say(r.error?nice(r.error):'Password updated.')})},0)}})
+}else render();
+})();
+</script>
+</body>
+</html>
